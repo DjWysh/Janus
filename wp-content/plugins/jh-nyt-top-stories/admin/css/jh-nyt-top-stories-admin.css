@@ -2,3 +2,24 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
+
+.options {
+  margin: 5em 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 1em;
+}
+
+.options__button {
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  border: solid 0.15rem black;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.options__button:hover,
+.options__button:focus {
+  background-color: #ffffff;
+}

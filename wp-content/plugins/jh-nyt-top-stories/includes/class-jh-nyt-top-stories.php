@@ -70,7 +70,7 @@ class Jh_Nyt_Top_Stories {
 		if ( defined( 'JH_NYT_TOP_STORIES_VERSION' ) ) {
 			$this->version = JH_NYT_TOP_STORIES_VERSION;
 		} else {
-			$this->version = '1.0.0';
+			$this->version = '1.1.0';
 		}
 		$this->plugin_name = 'jh-nyt-top-stories';
 
@@ -156,7 +156,7 @@ class Jh_Nyt_Top_Stories {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_options_page' );
 	}
 
 	/**

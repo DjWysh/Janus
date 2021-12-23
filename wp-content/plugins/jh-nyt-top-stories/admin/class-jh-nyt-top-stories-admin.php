@@ -50,7 +50,7 @@ class Jh_Nyt_Top_Stories_Admin {
 	public function __construct( $plugin_name, $version ) {
 
 		$this->plugin_name = $plugin_name;
-		$this->version = $version;
+		$this->version     = $version;
 
 	}
 
@@ -73,7 +73,7 @@ class Jh_Nyt_Top_Stories_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/jh-nyt-top-stories-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/jh-nyt-top-stories-admin.css', [], $this->version, 'all' );
 
 	}
 
@@ -96,8 +96,31 @@ class Jh_Nyt_Top_Stories_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/jh-nyt-top-stories-admin.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/jh-nyt-top-stories-admin.js', [ 'jquery' ], $this->version, false );
 
+	}
+
+	/**
+	 * Add an options page under settings submenu
+	 * @since 1.0.0
+	 */
+
+	public function add_options_page() {
+		$this->plugin_screen_hook_suffix = add_options_page(
+			__( 'NYT Top Stories Settings', 'jh-nyt-top-stories' ),
+			__( 'NYT Top Stories', 'jh-nyt-top-stories' ),
+			'manage_options',
+			$this->plugin_name,
+			[ $this, 'display_options_page' ]
+		);
+	}
+
+	/**Render the options page
+	 * @since 1.0.0
+	 */
+
+	public function display_options_page() {
+		include_once 'partials/jh-nyt-top-stories-admin-display.php';
 	}
 
 }

@@ -16,7 +16,7 @@
  * Plugin Name:       Janus Henderson NYT Top Stories
  * Plugin URI:        https://github.com/JanusHenderson/wp-skills-assessment
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
- * Version:           1.0.0
+ * Version:           1.1.0
  * Author:            Janus Henderson
  * Author URI:        https://www.janushenderson.com/
  * License:           GPL-2.0+
@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'JH_NYT_TOP_STORIES_VERSION', '1.0.0' );
+define( 'JH_NYT_TOP_STORIES_VERSION', '1.1.0' );
 
 /**
  * The code that runs during plugin activation.
@@ -63,6 +63,10 @@ register_deactivation_hook( __FILE__, 'deactivate_jh_nyt_top_stories' );
  * admin-specific hooks, and public-facing site hooks.
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-jh-nyt-top-stories.php';
+require_once plugin_dir_path( __FILE__ ) . 'includes/jh-nyt-posttype.php';
+require_once plugin_dir_path( __FILE__ ) . 'includes/jh-nyt-sync-feed.php';
+require_once plugin_dir_path( __FILE__ ) . 'includes/jh-nyt-sync-function.php';
+require_once plugin_dir_path( __FILE__ ) . 'includes/jh-nyt-custom-shortcode.php';
 
 /**
  * Begins execution of the plugin.
